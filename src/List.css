@@ -1,0 +1,15 @@
+ul {
+    margin: 50px auto;
+    min-width: 200px;
+    width: 30%;
+    list-style-type: none;
+}
+li {
+    text-align: left;
+    cursor: pointer;
+}
+
+li::before {
+    margin-right: 5px;
+    content:"\2729";
+}
