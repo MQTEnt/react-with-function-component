@@ -1,15 +1,9 @@
 import React from 'react';
 import './Detail.css';
+import pP from './HOC.js';
 
-const Detail = ({item, handleChange, handleClick}) => {
-    const handleChangeItem = (e, type) => {
-        const value = e.target.value
-        if (!value)
-            return;
-        let newDetail = {...item, [type]: value};
-        handleChange(newDetail);
-        return;
-    }
+
+const Detail = ({item, handleChangeItem, handleClick}) => {
     return (
         <div>
             Detail Item
@@ -23,4 +17,8 @@ const Detail = ({item, handleChange, handleClick}) => {
     );
 }
 
-export default Detail;
+export default pP(Detail);
+
+// function pP will handle change event of inputs (inside Detail Component)
+// functiion pP also use 'item' and 'handleChange' (the props from List Component pass to Detail Component) to handle data
+// ===> So that, we don't need to write change event funcion (handleChangeItem function) in Detail Component
