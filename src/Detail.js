@@ -3,7 +3,10 @@ import './Detail.css';
 
 const Detail = ({item, handleChange, handleClick}) => {
     const handleChangeItem = (e, type) => {
-        let newDetail = {...item, [type]: e.target.value};
+        const value = e.target.value
+        if (!value)
+            return;
+        let newDetail = {...item, [type]: value};
         handleChange(newDetail);
         return;
     }
