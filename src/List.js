@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './Item';
+import Utility from './Utility';
 import Detail from './Detail';
 import Create from './Create';
 import './List.css';
@@ -50,7 +51,17 @@ class List extends Component {
             <div>
                 <ul>
                 {
-                    items.map(item => <Item key={item.id} item={item} handleClick={this.selectItem}/>)
+                    items.map(item => 
+                        <Utility 
+                            key={item.id}
+                            render={utility => (
+                                <Item 
+                                    utility={utility}
+                                    item={item}
+                                    handleClick={this.selectItem}
+                                />
+                        )}/>
+                    )
                 }
                 </ul>
                 <button type="button" onClick={this.clickCreateButton}>+</button>
